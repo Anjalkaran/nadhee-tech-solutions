@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.nadheedigital.com/sitemap.xml
+Sitemap: https://nadheetechsolutions.com/sitemap.xml

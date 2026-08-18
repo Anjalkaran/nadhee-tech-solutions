@@ -132,8 +132,8 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-2.5">
                 <Globe className="w-3.5 h-3.5 text-[#155EEF] flex-shrink-0" />
-                <a href={`https://${SITE_CONFIG.consultant.website}`} target="_blank" rel="noopener noreferrer" className="hover:text-[#155EEF] transition-colors text-[#0B1F4B]">
-                  {SITE_CONFIG.consultant.website}
+                <a href={SITE_CONFIG.consultant.website} target="_blank" rel="noopener noreferrer" className="hover:text-[#155EEF] transition-colors text-[#0B1F4B]">
+                  {SITE_CONFIG.consultant.websiteDisplay}
                 </a>
               </li>
               <li className="flex items-start gap-2.5 pt-1">

@@ -55,8 +55,9 @@ export const SITE_CONFIG = {
     title: "Technology Solutions Consultant",
     phone: "9384390750",
     phoneFormatted: "+91 93843 90750",
-    email: "info@nadheedigital.com",
-    website: "www.nadheedigital.com",
+    email: "info@nadheetechsolutions.com",
+    website: "https://nadheetechsolutions.com",
+    websiteDisplay: "www.nadheetechsolutions.com",
     location: "Madurai, Tamil Nadu, India",
     whatsappUrl: "https://wa.me/919384390750?text=Hello%20NADHEE%20Tech%20Solutions%2C%20I%20would%20like%20to%20discuss%20a%20technology%20solution%20for%20my%20business."
   }

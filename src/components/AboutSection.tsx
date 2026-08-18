@@ -100,13 +100,13 @@ export const AboutSection: React.FC = () => {
                 </a>
 
                 <a
-                  href={`https://${SITE_CONFIG.consultant.website}`}
+                  href={SITE_CONFIG.consultant.website}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200 hover:border-brand-blue hover:bg-blue-50/50 transition-colors"
                 >
                   <Globe className="w-4 h-4 text-brand-blue flex-shrink-0" />
-                  <span className="font-medium text-slate-800">{SITE_CONFIG.consultant.website}</span>
+                  <span className="font-medium text-slate-800">{SITE_CONFIG.consultant.websiteDisplay}</span>
                 </a>
               </div>
 

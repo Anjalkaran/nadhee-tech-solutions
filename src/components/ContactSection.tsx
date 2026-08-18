@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, MessageSquare, Mail, CheckCircle, ArrowRight } from 'lucide-react';
+import { Phone, MessageSquare, Mail, Globe, MapPin, CheckCircle, ArrowRight } from 'lucide-react';
 import { SITE_CONFIG, BUDGET_OPTIONS, SERVICE_OPTIONS } from '../data/siteData';
 import { MaduraiMapVisual } from './MaduraiMapVisual';
 
@@ -166,7 +166,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledService
                           errors.phone ? 'border-rose-500' : 'border-slate-200 focus:border-brand-blue focus:bg-white'
                         } text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue/20 transition-all`}
                       />
-                      {errors.phone && <p className="text-[11px] text-rose-500 mt-1">{errors.phone}</p>}
+                      {errors.phone && <p className="text-[11px] text-rose-400 mt-1">{errors.phone}</p>}
                     </div>
                   </div>
 
@@ -368,15 +368,17 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledService
 
                 <div className="flex items-center justify-between py-1">
                   <span className="text-slate-500 font-medium">Website:</span>
-                  <a href={`https://${SITE_CONFIG.consultant.website}`} target="_blank" rel="noopener noreferrer" className="font-semibold text-slate-900 hover:text-brand-blue transition-colors">
-                    {SITE_CONFIG.consultant.website}
+                  <a href={SITE_CONFIG.consultant.website} target="_blank" rel="noopener noreferrer" className="font-semibold text-slate-900 hover:text-brand-blue transition-colors flex items-center gap-1">
+                    <Globe className="w-3.5 h-3.5 text-brand-blue" />
+                    <span>{SITE_CONFIG.consultant.websiteDisplay}</span>
                   </a>
                 </div>
 
                 <div className="flex items-center justify-between py-1">
                   <span className="text-slate-500 font-medium">Location:</span>
-                  <span className="font-semibold text-slate-900">
-                    {SITE_CONFIG.consultant.location}
+                  <span className="font-semibold text-slate-900 flex items-center gap-1">
+                    <MapPin className="w-3.5 h-3.5 text-brand-blue" />
+                    <span>{SITE_CONFIG.consultant.location}</span>
                   </span>
                 </div>
               </div>
