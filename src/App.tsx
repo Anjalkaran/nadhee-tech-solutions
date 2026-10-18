@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Services } from './components/Services';
@@ -14,14 +14,28 @@ import { Footer } from './components/Footer';
 import { QuoteModal } from './components/QuoteModal';
 import { Toast } from './components/Toast';
 import { NotFound } from './components/NotFound';
+import { PrivacyPolicy } from './components/PrivacyPolicy';
+import { TermsOfService } from './components/TermsOfService';
+import { DataDeletion } from './components/DataDeletion';
 import { MessageSquare } from 'lucide-react';
 import { SITE_CONFIG } from './data/siteData';
 
 export function App() {
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [selectedServiceForQuote, setSelectedServiceForQuote] = useState('');
   const [toastMessage, setToastMessage] = useState<string | null>(null);
-  const [show404, setShow404] = useState(false);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Normalize path (handle trailing slashes)
+  const normalizedPath = currentPath.replace(/\/+$/, '') || '/';
 
   const handleOpenConsultation = (serviceName?: string) => {
     setSelectedServiceForQuote(serviceName || '');
@@ -29,6 +43,10 @@ export function App() {
   };
 
   const handleExploreServices = () => {
+    if (window.location.pathname !== '/') {
+      window.location.href = '/#services';
+      return;
+    }
     const el = document.getElementById('services');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
@@ -39,53 +57,64 @@ export function App() {
     setToastMessage(msg);
   };
 
-  if (show404) {
-    return <NotFound onGoHome={() => setShow404(false)} />;
-  }
-
   return (
     <div className="min-h-screen bg-brand-navy-dark text-slate-100 flex flex-col font-sans selection:bg-brand-blue selection:text-white">
       
       {/* Sticky Header */}
       <Header onOpenConsultation={() => handleOpenConsultation()} />
 
-      {/* Main Content Sections */}
+      {/* Main Content Sections or Routed Pages */}
       <main className="flex-grow">
-        {/* 1. Hero Section */}
-        <Hero 
-          onOpenConsultation={() => handleOpenConsultation()} 
-          onExploreServices={handleExploreServices}
-        />
+        {normalizedPath === '/privacy-policy' ? (
+          <PrivacyPolicy />
+        ) : normalizedPath === '/terms' ? (
+          <TermsOfService />
+        ) : normalizedPath === '/data-deletion' ? (
+          <DataDeletion />
+        ) : normalizedPath === '/' ? (
+          <>
+            {/* 1. Hero Section */}
+            <Hero 
+              onOpenConsultation={() => handleOpenConsultation()} 
+              onExploreServices={handleExploreServices}
+            />
 
-        {/* 2. Services Section */}
-        <Services onSelectService={(service) => handleOpenConsultation(service)} />
+            {/* 2. Services Section */}
+            <Services onSelectService={(service) => handleOpenConsultation(service)} />
 
-        {/* 3. Why Choose NADHEE */}
-        <WhyNadhee />
+            {/* 3. Why Choose NADHEE */}
+            <WhyNadhee />
 
-        {/* 4. Solutions for Businesses */}
-        <BusinessSolutions onOpenConsultation={() => handleOpenConsultation()} />
+            {/* 4. Solutions for Businesses */}
+            <BusinessSolutions onOpenConsultation={() => handleOpenConsultation()} />
 
-        {/* 5. Our Work */}
-        <OurWork />
+            {/* 5. Our Work */}
+            <OurWork />
 
-        {/* 6. Pricing Section */}
-        <Pricing onRequestQuote={(plan) => handleOpenConsultation(plan)} />
+            {/* 6. Pricing Section */}
+            <Pricing onRequestQuote={(plan) => handleOpenConsultation(plan)} />
 
-        {/* 7. How We Work */}
-        <HowWeWork />
+            {/* 7. How We Work */}
+            <HowWeWork />
 
-        {/* 8. Business Problem Callout */}
-        <ProblemCTA onOpenConsultation={() => handleOpenConsultation()} />
+            {/* 8. Business Problem Callout */}
+            <ProblemCTA onOpenConsultation={() => handleOpenConsultation()} />
 
-        {/* 9. About NADHEE */}
-        <AboutSection />
+            {/* 9. About NADHEE */}
+            <AboutSection />
 
-        {/* 10. Contact & Location Section */}
-        <ContactSection 
-          prefilledService={selectedServiceForQuote} 
-          onSuccessToast={showToast} 
-        />
+            {/* 10. Contact & Location Section */}
+            <ContactSection 
+              prefilledService={selectedServiceForQuote} 
+              onSuccessToast={showToast} 
+            />
+          </>
+        ) : (
+          <NotFound onGoHome={() => {
+            window.history.pushState({}, '', '/');
+            setCurrentPath('/');
+          }} />
+        )}
       </main>
 
       {/* Footer */}

@@ -8,11 +8,19 @@ export const Footer: React.FC = () => {
   };
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    // If navigating to home section from a legal page
+    if (window.location.pathname !== '/' && href.startsWith('#')) {
+      window.location.href = '/' + href;
+      return;
+    }
+
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const targetId = href.replace('#', '');
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -26,22 +34,24 @@ export const Footer: React.FC = () => {
           {/* Col 1: Brand Info (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex flex-col">
-              <img 
-                src="/logo.png" 
-                alt="NADHEE Tech Solutions" 
-                className="h-10 w-auto object-contain self-start"
-              />
+              <a href="/" className="inline-block">
+                <img 
+                  src="/logo.png" 
+                  alt="NADHEE Tech Solutions" 
+                  className="h-10 w-auto object-contain self-start"
+                />
+              </a>
               <span className="text-[9.5px] font-extrabold tracking-[0.25em] text-[#155EEF] uppercase pl-1 mt-0.5 font-sans">
                 TECH SOLUTIONS
               </span>
             </div>
 
             <p className="text-sm font-semibold text-[#155EEF] italic">
-              "{SITE_CONFIG.tagline}"
+              &quot;{SITE_CONFIG.tagline}&quot;
             </p>
 
             <p className="text-xs text-[#475569] leading-relaxed max-w-sm">
-              We build practical software, web applications and automation solutions designed around the way your business works.
+              We build practical software, web applications, ERP and AI-assisted automation solutions designed around the way your business works.
             </p>
 
             <div className="pt-1">
@@ -64,18 +74,18 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2 text-xs">
               {[
-                { name: 'Home', href: '#home' },
-                { name: 'Services', href: '#services' },
-                { name: 'Solutions', href: '#solutions' },
-                { name: 'Our Work', href: '#work' },
-                { name: 'Pricing', href: '#pricing' },
-                { name: 'About', href: '#about' },
-                { name: 'Contact', href: '#contact' },
+                { name: 'Home', href: '/' },
+                { name: 'Services', href: '/#services' },
+                { name: 'Solutions', href: '/#solutions' },
+                { name: 'Our Work', href: '/#work' },
+                { name: 'Pricing', href: '/#pricing' },
+                { name: 'About', href: '/#about' },
+                { name: 'Contact', href: '/#contact' },
               ].map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
+                    onClick={(e) => handleNavClick(e, link.href.replace('/', ''))}
                     className="text-[#475569] hover:text-[#155EEF] transition-colors block py-0.5"
                   >
                     {link.name}
@@ -85,23 +95,21 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Col 3: Services (2 cols) */}
+          {/* Col 3: Services & Legal (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-bold text-[#0B1F4B] uppercase tracking-wider font-mono">
-              Services
+              Services &amp; Legal
             </h4>
             <ul className="space-y-2 text-xs">
               {[
                 'Custom Software',
                 'Web Applications',
-                'Mobile Applications',
                 'Business Automation',
-                'Dashboards & Reports',
                 'AI Solutions',
               ].map((service) => (
                 <li key={service}>
                   <a
-                    href="#services"
+                    href="/#services"
                     onClick={(e) => handleNavClick(e, '#services')}
                     className="text-[#475569] hover:text-[#155EEF] transition-colors block py-0.5"
                   >
@@ -109,6 +117,30 @@ export const Footer: React.FC = () => {
                   </a>
                 </li>
               ))}
+              <li className="pt-2 border-t border-[#DCE6F5]/80">
+                <a
+                  href="/privacy-policy"
+                  className="text-[#475569] hover:text-[#155EEF] font-semibold transition-colors block py-0.5"
+                >
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/terms"
+                  className="text-[#475569] hover:text-[#155EEF] font-semibold transition-colors block py-0.5"
+                >
+                  Terms of Service
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/data-deletion"
+                  className="text-[#475569] hover:text-[#155EEF] font-semibold transition-colors block py-0.5"
+                >
+                  User Data Deletion
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -147,8 +179,14 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#475569]">
-          <div>
-            © 2026 {SITE_CONFIG.fullName}. All rights reserved.
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <span>© 2026 {SITE_CONFIG.fullName}. All rights reserved.</span>
+            <span className="hidden sm:inline">•</span>
+            <a href="/privacy-policy" className="hover:text-[#155EEF] underline">Privacy Policy</a>
+            <span>•</span>
+            <a href="/terms" className="hover:text-[#155EEF] underline">Terms of Service</a>
+            <span>•</span>
+            <a href="/data-deletion" className="hover:text-[#155EEF] underline">Data Deletion</a>
           </div>
           
           <div className="flex items-center gap-6">

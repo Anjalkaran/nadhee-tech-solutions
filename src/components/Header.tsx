@@ -36,20 +36,23 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'Solutions', href: '#solutions' },
-    { name: 'Our Work', href: '#work' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/#home', id: 'home' },
+    { name: 'Services', href: '/#services', id: 'services' },
+    { name: 'Solutions', href: '/#solutions', id: 'solutions' },
+    { name: 'Our Work', href: '/#work', id: 'work' },
+    { name: 'Pricing', href: '/#pricing', id: 'pricing' },
+    { name: 'About', href: '/#about', id: 'about' },
+    { name: 'Contact', href: '/#contact', id: 'contact' },
   ];
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, id: string) => {
     setMobileMenuOpen(false);
-    const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
+    if (window.location.pathname !== '/') {
+      window.location.href = href;
+      return;
+    }
+    e.preventDefault();
+    const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -68,8 +71,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
           
           {/* Brand Logo with Official Uploaded Image */}
           <a 
-            href="#home" 
-            onClick={(e) => handleNavClick(e, '#home')}
+            href="/" 
+            onClick={(e) => handleNavClick(e, '/', 'home')}
             className="flex items-center gap-2.5 group focus:outline-none rounded-lg p-0.5"
           >
             <div className="flex flex-col">
@@ -89,12 +92,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1">
             {navLinks.map((link) => {
-              const isActive = activeSection === link.href.replace('#', '');
+              const isActive = window.location.pathname === '/' && activeSection === link.id;
               return (
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
+                  onClick={(e) => handleNavClick(e, link.href, link.id)}
                   className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
                     isActive 
                       ? 'text-[#155EEF] bg-[#F5F9FF] font-semibold border border-[#DCE6F5]' 
@@ -160,12 +163,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
       >
         <div className="px-4 pt-3 pb-6 space-y-1.5">
           {navLinks.map((link) => {
-            const isActive = activeSection === link.href.replace('#', '');
+            const isActive = window.location.pathname === '/' && activeSection === link.id;
             return (
               <a
                 key={link.name}
                 href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
+                onClick={(e) => handleNavClick(e, link.href, link.id)}
                 className={`block px-4 py-2.5 rounded-xl text-base font-medium transition-colors ${
                   isActive 
                     ? 'text-[#155EEF] bg-[#F5F9FF] font-semibold border border-[#DCE6F5]' 
