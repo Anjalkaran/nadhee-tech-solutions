@@ -8,15 +8,22 @@ export const Footer: React.FC = () => {
   };
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    // If navigating to home section from a legal page
-    if (window.location.pathname !== '/' && href.startsWith('#')) {
-      window.location.href = '/' + href;
+    if (href === '/whatsapp-business-platform') {
+      if (window.location.pathname === '/whatsapp-business-platform') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
       return;
     }
 
-    if (href.startsWith('#')) {
+    if (window.location.pathname !== '/' && href.startsWith('/#')) {
+      window.location.href = href;
+      return;
+    }
+
+    if (href.startsWith('/#')) {
       e.preventDefault();
-      const targetId = href.replace('#', '');
+      const targetId = href.replace('/#', '');
       const element = document.getElementById(targetId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
@@ -51,7 +58,7 @@ export const Footer: React.FC = () => {
             </p>
 
             <p className="text-xs text-[#475569] leading-relaxed max-w-sm">
-              We build practical software, web applications, ERP and AI-assisted automation solutions designed around the way your business works.
+              Nadhee Tech Solutions provides cloud-based business software, ERP, WhatsApp Business integrations and digital solutions that help businesses manage operations, customer communication and commerce.
             </p>
 
             <div className="pt-1">
@@ -70,22 +77,24 @@ export const Footer: React.FC = () => {
           {/* Col 2: Quick Links (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-bold text-[#0B1F4B] uppercase tracking-wider font-mono">
-              Quick Links
+              Platform &amp; Navigation
             </h4>
             <ul className="space-y-2 text-xs">
               {[
                 { name: 'Home', href: '/' },
-                { name: 'Services', href: '/#services' },
-                { name: 'Solutions', href: '/#solutions' },
-                { name: 'Our Work', href: '/#work' },
-                { name: 'Pricing', href: '/#pricing' },
-                { name: 'About', href: '/#about' },
-                { name: 'Contact', href: '/#contact' },
+                { name: 'SaaS Platform Model', href: '/#platform' },
+                { name: 'Services & Solutions', href: '/#services' },
+                { name: 'WhatsApp Business Platform', href: '/whatsapp-business-platform' },
+                { name: 'Solutions for Industry', href: '/#solutions' },
+                { name: 'Our Work & Case Studies', href: '/#work' },
+                { name: 'Pricing Tiers', href: '/#pricing' },
+                { name: 'About Nadhee', href: '/#about' },
+                { name: 'Contact Consultant', href: '/#contact' },
               ].map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href.replace('/', ''))}
+                    onClick={(e) => handleNavClick(e, link.href)}
                     className="text-[#475569] hover:text-[#155EEF] transition-colors block py-0.5"
                   >
                     {link.name}
@@ -101,22 +110,32 @@ export const Footer: React.FC = () => {
               Services &amp; Legal
             </h4>
             <ul className="space-y-2 text-xs">
-              {[
-                'Custom Software',
-                'Web Applications',
-                'Business Automation',
-                'AI Solutions',
-              ].map((service) => (
-                <li key={service}>
-                  <a
-                    href="/#services"
-                    onClick={(e) => handleNavClick(e, '#services')}
-                    className="text-[#475569] hover:text-[#155EEF] transition-colors block py-0.5"
-                  >
-                    {service}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a
+                  href="/whatsapp-business-platform"
+                  className="text-[#155EEF] font-semibold hover:underline block py-0.5"
+                >
+                  WhatsApp Integration
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/#services"
+                  onClick={(e) => handleNavClick(e, '/#services')}
+                  className="text-[#475569] hover:text-[#155EEF] transition-colors block py-0.5"
+                >
+                  Cloud ERP Solutions
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/#services"
+                  onClick={(e) => handleNavClick(e, '/#services')}
+                  className="text-[#475569] hover:text-[#155EEF] transition-colors block py-0.5"
+                >
+                  Process Automation
+                </a>
+              </li>
               <li className="pt-2 border-t border-[#DCE6F5]/80">
                 <a
                   href="/privacy-policy"
@@ -147,7 +166,7 @@ export const Footer: React.FC = () => {
           {/* Col 4: Contact Details (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-bold text-[#0B1F4B] uppercase tracking-wider font-mono">
-              Contact Us
+              Contact Information
             </h4>
             <ul className="space-y-2.5 text-xs text-[#475569]">
               <li className="flex items-center gap-2.5">
@@ -182,6 +201,14 @@ export const Footer: React.FC = () => {
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <span>© 2026 {SITE_CONFIG.fullName}. All rights reserved.</span>
             <span className="hidden sm:inline">•</span>
+            <a href="/about" onClick={(e) => handleNavClick(e, '/#about')} className="hover:text-[#155EEF]">About</a>
+            <span>•</span>
+            <a href="/services" onClick={(e) => handleNavClick(e, '/#services')} className="hover:text-[#155EEF]">Services</a>
+            <span>•</span>
+            <a href="/whatsapp-business-platform" className="hover:text-[#155EEF]">WhatsApp Business Platform</a>
+            <span>•</span>
+            <a href="/contact" onClick={(e) => handleNavClick(e, '/#contact')} className="hover:text-[#155EEF]">Contact</a>
+            <span>•</span>
             <a href="/privacy-policy" className="hover:text-[#155EEF] underline">Privacy Policy</a>
             <span>•</span>
             <a href="/terms" className="hover:text-[#155EEF] underline">Terms of Service</a>
@@ -195,7 +222,7 @@ export const Footer: React.FC = () => {
             </span>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-lg bg-white border border-[#DCE6F5] hover:border-[#155EEF] text-[#475569] hover:text-[#155EEF] transition-colors flex items-center gap-1 shadow-sm"
+              className="p-2 rounded-lg bg-white border border-[#DCE6F5] hover:border-[#155EEF] text-[#475569] hover:text-[#155EEF] transition-colors flex items-center gap-1 shadow-xs"
               aria-label="Scroll to top of page"
             >
               <ArrowUp className="w-4 h-4" />

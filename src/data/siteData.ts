@@ -50,6 +50,7 @@ export const SITE_CONFIG = {
   brandSubtitle: "TECH SOLUTIONS",
   fullName: "NADHEE TECH SOLUTIONS",
   tagline: "Technology. Built for Business.",
+  positioning: "Nadhee Tech Solutions provides cloud-based business software, ERP, WhatsApp Business integrations and digital solutions that help businesses manage operations, customer communication and commerce.",
   consultant: {
     name: "Ramamoorthy K",
     title: "Technology Solutions Consultant",
@@ -65,46 +66,67 @@ export const SITE_CONFIG = {
 
 export const SERVICES: ServiceItem[] = [
   {
+    id: "cloud-erp",
+    title: "Cloud ERP & Operations",
+    description: "Cloud-based business management software covering billing, inventory, customer ledgers, and operational workflows.",
+    features: ["Multi-Counter Point of Sale", "Real-Time Stock Tracking", "Customer Outstanding Ledgers", "Role-Based Staff Access"],
+    icon: "Layers"
+  },
+  {
+    id: "whatsapp-integration",
+    title: "WhatsApp Business Integration",
+    description: "Technology solutions connecting client-authorized WhatsApp Business Platform assets with operational systems.",
+    features: ["Order & Booking Confirmations", "Automated Invoice Delivery", "Dispatch & Tracking Alerts", "Isolated Client Data Handling"],
+    icon: "MessageSquare"
+  },
+  {
+    id: "whatsapp-commerce",
+    title: "WhatsApp Commerce Solutions",
+    description: "Enable customers to browse catalogues, place orders, and receive payment links directly inside WhatsApp.",
+    features: ["Catalogue Discovery", "Cart & Order Capture", "Payment Link Dispatches", "Customer Enquiry Routing"],
+    icon: "ShoppingBag"
+  },
+  {
     id: "custom-software",
-    title: "Custom Software",
-    description: "Business-specific software designed around your workflow, processes and requirements.",
-    features: ["Tailored Business Logic", "Role-Based Access", "Secure Database Design", "Scalable Architecture"],
+    title: "Custom Software Solutions",
+    description: "Business-specific software designed around your workflow, processes, operational rules and requirements.",
+    features: ["Tailored Business Logic", "Secure Cloud Database", "Scalable Modular Architecture", "Direct Consultant Support"],
     icon: "Cpu"
   },
   {
     id: "web-applications",
-    title: "Web Applications",
-    description: "Modern, responsive web applications that simplify operations and improve customer experiences.",
-    features: ["Fast & Responsive UI", "Cloud-Ready Infrastructure", "API Integrations", "Client Portals"],
+    title: "Web Applications & Portals",
+    description: "Modern, responsive cloud web applications that simplify business operations and improve customer experiences.",
+    features: ["Fast & Responsive UI", "Cloud Infrastructure", "REST API Integrations", "Client & Staff Portals"],
     icon: "Globe"
   },
   {
-    id: "mobile-applications",
-    title: "Mobile Applications",
-    description: "Mobile applications designed for customers, employees and business operations.",
-    features: ["iOS & Android Support", "Offline Capabilities", "Push Notifications", "Smooth Touch Experience"],
-    icon: "Smartphone"
-  },
-  {
     id: "business-automation",
-    title: "Business Automation",
-    description: "Automate repetitive tasks, reduce manual work and improve operational efficiency.",
-    features: ["Workflow Optimization", "Automated Alerts & WhatsApp", "Paperless Processing", "Error Reduction"],
+    title: "Business Process Automation",
+    description: "Automate repetitive data entry, alerts, and transaction reconciliation to reduce manual human overhead.",
+    features: ["Workflow Pipeline Triggers", "Automated Customer Notifications", "Paperless Invoicing", "Error Reduction"],
     icon: "Zap"
   },
   {
     id: "dashboards-reports",
-    title: "Dashboards & Reports",
-    description: "Turn business data into clear dashboards, reports and actionable insights.",
-    features: ["Real-Time Visualizations", "Exportable PDF/Excel", "KPI Tracking", "Executive Analytics"],
+    title: "Dashboards & Analytics",
+    description: "Turn transactional business data into clear dashboards, operational reports and actionable insights.",
+    features: ["Real-Time Visualizations", "Exportable PDF/Excel Reports", "Daily Sales & Profit Metrics", "Executive Summaries"],
     icon: "BarChart3"
   },
   {
-    id: "ai-solutions",
-    title: "AI Solutions",
-    description: "Use AI to automate processes, improve productivity and create smarter digital experiences.",
-    features: ["Intelligent Process Automation", "Smart Search & Assistance", "Automated Evaluations", "Productivity Enhancements"],
-    icon: "Sparkles"
+    id: "api-integration",
+    title: "API & Systems Integration",
+    description: "Connect payment gateways, SMS/messaging providers, logistics partners, and third-party cloud services.",
+    features: ["Payment Gateway Connectors", "Logistics & Courier APIs", "Webhook Architecture", "Secure Auth Protocols"],
+    icon: "Code2"
+  },
+  {
+    id: "mobile-applications",
+    title: "Mobile Business Applications",
+    description: "Lightweight mobile applications designed for counter staff, field executives, and on-the-go business monitoring.",
+    features: ["Mobile-First Design", "Responsive Touch Performance", "Push Alerts & Notifications", "Cloud Data Sync"],
+    icon: "Smartphone"
   }
 ];
 
@@ -120,18 +142,18 @@ export const WHY_CHOOSE_NADHEE: FeatureBlock[] = [
     icon: "ShieldCheck"
   },
   {
-    title: "Mobile-First Development",
-    description: "Engineered specifically for optimal touch interfaces and responsive performance on all screen sizes.",
-    icon: "Smartphone"
+    title: "Strict Data Isolation",
+    description: "Each client's business records, customer numbers, and messages are partitioned with zero cross-tenant data sharing.",
+    icon: "ShieldCheck"
   },
   {
-    title: "Modern Technology",
-    description: "Clean codebases, modern frameworks, cloud security, and robust databases built to last and grow.",
+    title: "Modern Technology Stack",
+    description: "Clean codebases, modern frameworks, cloud security, and robust databases built to last and scale.",
     icon: "Code2"
   },
   {
     title: "Direct Communication",
-    description: "Work directly with your technology consultant. No middlemen, no confusing jargon, quick responses.",
+    description: "Work directly with your technology consultant. No middlemen, no confusing jargon, fast responses.",
     icon: "MessageSquare"
   },
   {
@@ -147,20 +169,20 @@ export const BUSINESS_SOLUTIONS: IndustrySolution[] = [
     subtitle: "Streamline counter sales and inventory tracking",
     icon: "Store",
     items: [
-      "Fast Billing & Invoicing",
-      "Inventory & Stock Management",
-      "Customer Management & Loyalty",
+      "Fast Counter Billing & Invoicing",
+      "Inventory & Low-Stock Alerts",
+      "WhatsApp Invoice Receipts",
       "Daily Sales & Profit Reports"
     ]
   },
   {
-    title: "Education",
+    title: "Education & Academies",
     subtitle: "Empower institutions, tutors, and learning platforms",
     icon: "GraduationCap",
     items: [
       "Student & Batch Management",
       "Online Tests & Timed Assessments",
-      "Fee Tracking & Receipt Generation",
+      "Fee Tracking & WhatsApp Receipts",
       "Student & Parent Portals"
     ]
   },
@@ -176,14 +198,14 @@ export const BUSINESS_SOLUTIONS: IndustrySolution[] = [
     ]
   },
   {
-    title: "Small & Medium Businesses",
+    title: "Small & Medium Enterprises",
     subtitle: "Centralize operations and automate manual workflows",
     icon: "Building2",
     items: [
-      "Custom Business CRM",
+      "Cloud ERP & Operations CRM",
       "Workflow & Approval Automation",
-      "Operational Dashboards",
-      "Custom Business Applications"
+      "WhatsApp Business Notification Pipelines",
+      "Operational Executive Dashboards"
     ]
   }
 ];
@@ -236,21 +258,21 @@ export const PRICING_PLANS: PricingPlan[] = [
     ]
   },
   {
-    id: "ecommerce-website",
-    title: "E-COMMERCE WEBSITE",
-    startingPrice: "₹15,000",
-    idealFor: "Shops and brands selling products online",
+    id: "whatsapp-starter",
+    title: "WHATSAPP WORKFLOW STARTER",
+    startingPrice: "₹12,000",
+    idealFor: "Shops & service businesses seeking WhatsApp integration",
     features: [
-      "Product catalogue & category filters",
-      "Shopping cart & checkout experience",
-      "Order management system",
-      "Online payment gateway integration",
-      "Intuitive admin management panel"
+      "WhatsApp Business Platform setup guidance",
+      "Automated order & invoice notification webhook",
+      "Branded notification templates",
+      "Direct integration with billing/orders",
+      "Technical setup & verification support"
     ]
   },
   {
     id: "custom-web-app",
-    title: "CUSTOM WEB APPLICATION",
+    title: "CUSTOM CLOUD ERP / APP",
     startingPrice: "₹25,000",
     popular: true,
     idealFor: "Businesses needing tailored operations & portals",
@@ -263,8 +285,21 @@ export const PRICING_PLANS: PricingPlan[] = [
     ]
   },
   {
+    id: "ecommerce-website",
+    title: "E-COMMERCE & COMMERCE SUITE",
+    startingPrice: "₹18,000",
+    idealFor: "Shops and brands selling products online",
+    features: [
+      "Product catalogue & category filters",
+      "Shopping cart & checkout experience",
+      "WhatsApp order notifications",
+      "Online payment gateway integration",
+      "Intuitive admin management panel"
+    ]
+  },
+  {
     id: "business-automation",
-    title: "BUSINESS AUTOMATION",
+    title: "BUSINESS PROCESS AUTOMATION",
     startingPrice: "₹15,000",
     idealFor: "Teams looking to eliminate repetitive manual tasks",
     features: [
@@ -273,19 +308,6 @@ export const PRICING_PLANS: PricingPlan[] = [
       "Instant WhatsApp / Email notifications",
       "Activity logs & summary reports",
       "Ongoing technical support"
-    ]
-  },
-  {
-    id: "mobile-application",
-    title: "MOBILE APPLICATION",
-    startingPrice: "₹25,000",
-    idealFor: "Customer-facing or internal staff field apps",
-    features: [
-      "Custom mobile UI/UX design",
-      "Targeted business functionality",
-      "Seamless API backend integration",
-      "Push notification capability",
-      "Complete deployment support"
     ]
   }
 ];
@@ -327,13 +349,13 @@ export const BUDGET_OPTIONS = [
 ];
 
 export const SERVICE_OPTIONS = [
+  "Cloud ERP Solutions",
+  "WhatsApp Business Integration",
+  "WhatsApp Commerce",
   "Custom Software",
   "Web Application",
-  "Business Website",
-  "E-Commerce Website",
-  "Mobile Application",
-  "Business Automation",
-  "Dashboards & Reports",
-  "AI Solution",
+  "Business Process Automation",
+  "Billing & Inventory System",
+  "API & Systems Integration",
   "Other / Not Sure"
 ];

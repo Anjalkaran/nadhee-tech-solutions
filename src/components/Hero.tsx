@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Sparkles, ShieldCheck, Code, Zap, Terminal, BarChart2, Check } from 'lucide-react';
+import { ArrowRight, Server, Check, BarChart2, Radio, Database } from 'lucide-react';
 
 interface HeroProps {
   onOpenConsultation: () => void;
@@ -19,10 +19,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation, onExploreService
           {/* Left Column: Text & CTAs */}
           <div className="lg:col-span-7 text-center lg:text-left space-y-6 sm:space-y-8">
             
-            {/* Top Badge */}
+            {/* Top Badge: Clear SaaS / Technology positioning */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5F9FF] border border-[#DCE6F5] text-xs sm:text-sm font-semibold text-[#155EEF] shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-[#155EEF]" />
-              <span>Technology Solutions Company • Madurai</span>
+              <Server className="w-3.5 h-3.5 text-[#155EEF]" />
+              <span>Cloud ERP • SaaS Solutions • WhatsApp Integrations • Madurai</span>
             </div>
 
             {/* Main Heading */}
@@ -35,9 +35,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation, onExploreService
               </span>
             </h1>
 
-            {/* Supporting Text */}
+            {/* Supporting Text: Clear, professional SaaS positioning */}
             <p className="text-base sm:text-lg md:text-xl text-[#475569] max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-              We build practical software, web applications and automation solutions designed around the way your business works.
+              Nadhee Tech Solutions provides cloud-based business software, ERP, WhatsApp Business integrations and digital solutions that help businesses manage operations, customer communication and commerce.
             </p>
 
             {/* Action Buttons */}
@@ -54,24 +54,36 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation, onExploreService
                 onClick={onExploreServices}
                 className="px-6 py-4 rounded-xl bg-white hover:bg-[#F5F9FF] text-[#155EEF] font-semibold text-base border-2 border-[#155EEF] transition-all duration-150 flex items-center justify-center gap-2 shadow-sm"
               >
-                <span>Explore Our Services</span>
+                <span>Explore Services</span>
                 <ArrowRight className="w-4 h-4 text-[#155EEF]" />
               </button>
+
+              <a
+                href="/whatsapp-business-platform"
+                className="px-6 py-4 rounded-xl bg-[#F5F9FF] hover:bg-blue-50 text-[#0B1F4B] font-semibold text-base border border-[#DCE6F5] transition-all duration-150 flex items-center justify-center gap-2 shadow-sm"
+              >
+                <span>WhatsApp Solutions</span>
+                <ArrowRight className="w-4 h-4 text-[#155EEF]" />
+              </a>
             </div>
 
-            {/* Supporting Line with 3 Value Props */}
+            {/* Supporting Line with 4 Value Props */}
             <div className="pt-4 sm:pt-6 border-t border-[#DCE6F5] flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-6 text-xs sm:text-sm font-semibold text-[#0B1F4B]">
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-[#155EEF] stroke-[2.5]" />
-                <span>Custom-built</span>
+                <span>Cloud SaaS ERP</span>
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-[#155EEF] stroke-[2.5]" />
-                <span>Business-focused</span>
+                <span>WhatsApp Business Integration</span>
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-[#155EEF] stroke-[2.5]" />
-                <span>Scalable</span>
+                <span>Isolated Client Data</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-[#155EEF] stroke-[2.5]" />
+                <span>Zero Data Monetization</span>
               </div>
             </div>
 
@@ -91,45 +103,45 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation, onExploreService
                     <div className="w-3 h-3 rounded-full bg-rose-400"></div>
                     <div className="w-3 h-3 rounded-full bg-amber-400"></div>
                     <div className="w-3 h-3 rounded-full bg-emerald-400"></div>
-                    <span className="ml-2 text-xs font-semibold text-[#0B1F4B]">Nadhee Business Suite</span>
+                    <span className="ml-2 text-xs font-semibold text-[#0B1F4B]">Nadhee Cloud ERP Suite</span>
                   </div>
                   <span className="text-[10px] font-mono font-bold text-[#155EEF] bg-[#F5F9FF] px-2.5 py-0.5 rounded-full border border-[#DCE6F5]">
-                    v2.4 Production
+                    SaaS Platform
                   </span>
                 </div>
 
                 {/* Dashboard Metric Modules */}
                 <div className="space-y-3 font-sans text-xs">
                   
-                  {/* Module 1: Workflow Engine */}
+                  {/* Module 1: WhatsApp Business Platform Sync */}
                   <div className="p-3.5 rounded-xl bg-[#F5F9FF] border border-[#DCE6F5] flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-white border border-[#DCE6F5] flex items-center justify-center text-[#155EEF] shadow-sm">
-                        <Terminal className="w-4 h-4" />
+                      <div className="w-8 h-8 rounded-lg bg-white border border-[#DCE6F5] flex items-center justify-center text-emerald-600 shadow-sm">
+                        <Radio className="w-4 h-4" />
                       </div>
                       <div>
-                        <div className="font-bold text-[#0B1F4B]">Workflow Engine</div>
-                        <div className="text-[11px] text-[#475569]">Automated task pipeline</div>
+                        <div className="font-bold text-[#0B1F4B]">WhatsApp Business Platform</div>
+                        <div className="text-[11px] text-[#475569]">Orders, Invoices &amp; Alerts</div>
                       </div>
                     </div>
                     <span className="text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded text-[10px] font-bold">
-                      Active
+                      Connected
                     </span>
                   </div>
 
-                  {/* Module 2: Automation Status */}
+                  {/* Module 2: Tenant Data Isolation */}
                   <div className="p-3.5 rounded-xl bg-[#F5F9FF] border border-[#DCE6F5] flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-white border border-[#DCE6F5] flex items-center justify-center text-amber-500 shadow-sm">
-                        <Zap className="w-4 h-4" />
+                      <div className="w-8 h-8 rounded-lg bg-white border border-[#DCE6F5] flex items-center justify-center text-indigo-600 shadow-sm">
+                        <Database className="w-4 h-4" />
                       </div>
                       <div>
-                        <div className="font-bold text-[#0B1F4B]">Operations Automation</div>
-                        <div className="text-[11px] text-[#475569]">Billing & CRM Sync</div>
+                        <div className="font-bold text-[#0B1F4B]">Tenant Data Partition</div>
+                        <div className="text-[11px] text-[#475569]">Client data strictly isolated</div>
                       </div>
                     </div>
-                    <span className="text-[#155EEF] bg-blue-50 border border-blue-200 px-2 py-0.5 rounded text-[10px] font-bold">
-                      Optimized
+                    <span className="text-indigo-700 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded text-[10px] font-bold">
+                      Isolated
                     </span>
                   </div>
 
@@ -140,12 +152,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation, onExploreService
                         <BarChart2 className="w-4 h-4" />
                       </div>
                       <div>
-                        <div className="font-bold text-[#0B1F4B]">Reports & Data</div>
-                        <div className="text-[11px] text-[#475569]">Live decision analytics</div>
+                        <div className="font-bold text-[#0B1F4B]">Billing &amp; Stock Reports</div>
+                        <div className="text-[11px] text-[#475569]">Live ledger reconciliations</div>
                       </div>
                     </div>
                     <span className="text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded text-[10px] font-bold">
-                      Connected
+                      Live
                     </span>
                   </div>
 
@@ -154,39 +166,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation, onExploreService
                 {/* Card Footer */}
                 <div className="mt-5 pt-3.5 border-t border-[#DCE6F5] flex items-center justify-between text-xs text-[#475569]">
                   <span className="font-bold text-[#0B1F4B]">NADHEE TECH SOLUTIONS</span>
-                  <span className="text-[11px] font-semibold text-[#155EEF]">Madurai, TN</span>
+                  <span className="text-[11px] font-semibold text-[#155EEF]">Madurai, India</span>
                 </div>
               </div>
-
-              {/* Floating Badge 1: Top Right */}
-              <div className="absolute -top-4 -right-2 sm:-right-4 z-20 bg-white rounded-xl p-3 border border-[#DCE6F5] shadow-md animate-float">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-[#F5F9FF] border border-[#DCE6F5] flex items-center justify-center text-[#155EEF]">
-                    <Code className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold text-[#0B1F4B]">Custom Software</div>
-                    <div className="text-[10px] text-[#475569]">Built to Specification</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating Badge 2: Bottom Left */}
-              <div className="absolute -bottom-4 -left-2 sm:-left-4 z-20 bg-white rounded-xl p-3 border border-[#DCE6F5] shadow-md animate-float-slow">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center text-[#155EEF]">
-                    <ShieldCheck className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold text-[#0B1F4B]">Automation</div>
-                    <div className="text-[10px] text-[#475569]">Smarter Workflows</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Decorative Outlines */}
-              <div className="absolute inset-0 -m-6 border border-[#DCE6F5]/70 rounded-3xl -z-10 pointer-events-none"></div>
-              <div className="absolute inset-0 -m-12 border border-[#DCE6F5]/40 rounded-[32px] -z-20 pointer-events-none hidden sm:block"></div>
 
             </div>
 

@@ -15,7 +15,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 15);
 
-      const sections = ['home', 'services', 'why-us', 'solutions', 'work', 'pricing', 'about', 'contact'];
+      const sections = ['home', 'platform', 'services', 'why-us', 'solutions', 'work', 'pricing', 'about', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -37,7 +37,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
 
   const navLinks = [
     { name: 'Home', href: '/#home', id: 'home' },
+    { name: 'SaaS Platform', href: '/#platform', id: 'platform' },
     { name: 'Services', href: '/#services', id: 'services' },
+    { name: 'WhatsApp Integration', href: '/whatsapp-business-platform', id: 'whatsapp' },
     { name: 'Solutions', href: '/#solutions', id: 'solutions' },
     { name: 'Our Work', href: '/#work', id: 'work' },
     { name: 'Pricing', href: '/#pricing', id: 'pricing' },
@@ -47,14 +49,26 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, id: string) => {
     setMobileMenuOpen(false);
+
+    if (href === '/whatsapp-business-platform') {
+      if (window.location.pathname === '/whatsapp-business-platform') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      return;
+    }
+
     if (window.location.pathname !== '/') {
       window.location.href = href;
       return;
     }
-    e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+
+    if (href.startsWith('/#')) {
+      e.preventDefault();
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -62,7 +76,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         isScrolled 
-          ? 'bg-white/98 backdrop-blur-md border-b border-[#DCE6F5] shadow-sm py-2.5' 
+          ? 'bg-white/98 backdrop-blur-md border-b border-[#DCE6F5] shadow-xs py-2.5' 
           : 'bg-white/95 backdrop-blur-sm border-b border-[#DCE6F5]/60 py-3.5'
       }`}
     >
@@ -90,16 +104,20 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1">
+          <nav className="hidden xl:flex items-center space-x-1">
             {navLinks.map((link) => {
-              const isActive = window.location.pathname === '/' && activeSection === link.id;
+              const isRouteActive = 
+                link.href === '/whatsapp-business-platform' 
+                  ? window.location.pathname === '/whatsapp-business-platform'
+                  : window.location.pathname === '/' && activeSection === link.id;
+
               return (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href, link.id)}
-                  className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
-                    isActive 
+                  className={`px-3 py-2 rounded-lg text-xs font-medium transition-all duration-150 ${
+                    isRouteActive 
                       ? 'text-[#155EEF] bg-[#F5F9FF] font-semibold border border-[#DCE6F5]' 
                       : 'text-[#0B1F4B] hover:text-[#155EEF] hover:bg-[#F5F9FF]/80'
                   }`}
@@ -123,7 +141,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
             
             <button
               onClick={onOpenConsultation}
-              className="px-4 py-2.5 rounded-xl bg-[#155EEF] hover:bg-[#1688FF] text-white font-semibold text-xs shadow-sm hover:shadow-md transition-all duration-150 flex items-center gap-1.5 active:scale-95"
+              className="px-4 py-2.5 rounded-xl bg-[#155EEF] hover:bg-[#1688FF] text-white font-semibold text-xs shadow-xs hover:shadow-md transition-all duration-150 flex items-center gap-1.5 active:scale-95"
             >
               <span>Get a Free Consultation</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -158,19 +176,23 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
       {/* Mobile Drawer */}
       <div 
         className={`lg:hidden transition-all duration-200 ease-in-out overflow-hidden ${
-          mobileMenuOpen ? 'max-h-[500px] opacity-100 border-b border-[#DCE6F5] bg-white shadow-lg' : 'max-h-0 opacity-0'
+          mobileMenuOpen ? 'max-h-[550px] opacity-100 border-b border-[#DCE6F5] bg-white shadow-lg' : 'max-h-0 opacity-0'
         }`}
       >
         <div className="px-4 pt-3 pb-6 space-y-1.5">
           {navLinks.map((link) => {
-            const isActive = window.location.pathname === '/' && activeSection === link.id;
+            const isRouteActive = 
+              link.href === '/whatsapp-business-platform' 
+                ? window.location.pathname === '/whatsapp-business-platform'
+                : window.location.pathname === '/' && activeSection === link.id;
+
             return (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href, link.id)}
-                className={`block px-4 py-2.5 rounded-xl text-base font-medium transition-colors ${
-                  isActive 
+                className={`block px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
+                  isRouteActive 
                     ? 'text-[#155EEF] bg-[#F5F9FF] font-semibold border border-[#DCE6F5]' 
                     : 'text-[#0B1F4B] hover:text-[#155EEF] hover:bg-[#F5F9FF]'
                 }`}
@@ -186,7 +208,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
                 setMobileMenuOpen(false);
                 onOpenConsultation();
               }}
-              className="w-full py-3 px-4 rounded-xl bg-[#155EEF] hover:bg-[#1688FF] text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-sm"
+              className="w-full py-3 px-4 rounded-xl bg-[#155EEF] hover:bg-[#1688FF] text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-xs"
             >
               <span>Get a Free Consultation</span>
               <ArrowRight className="w-4 h-4" />

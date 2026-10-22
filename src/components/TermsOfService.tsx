@@ -10,7 +10,7 @@ export const TermsOfService: React.FC = () => {
     if (metaDesc) {
       metaDesc.setAttribute(
         'content',
-        'Terms of Service for Nadhee Tech Solutions, governing the use of our software, ERP, and Nadhee AI Commerce Meta integration.'
+        'Terms of Service for Nadhee Tech Solutions, governing the use of our cloud ERP, SaaS business applications, and WhatsApp Business Platform integrations.'
       );
     }
   }, []);
@@ -36,16 +36,18 @@ export const TermsOfService: React.FC = () => {
             <FileText className="w-3.5 h-3.5" />
             <span>User Agreement</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#0B1F4B] tracking-tight mb-3">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#0B1F4B] tracking-tight mb-3 font-sans">
             Terms of Service
           </h1>
           <p className="text-sm text-[#475569] leading-relaxed">
-            These Terms of Service (&quot;Terms&quot;) govern the access and use of websites, custom software, ERP systems, conversational workflows, and applications provided by Nadhee Tech Solutions (&quot;Nadhee&quot;, &quot;we&quot;, &quot;us&quot;), including our Meta developer application <strong className="text-[#0B1F4B]">Nadhee AI Commerce</strong> (Meta App ID: <span className="font-mono text-xs bg-slate-100 px-2 py-0.5 rounded text-[#0B1F4B]">934938482334534</span>).
+            These Terms of Service (&quot;Terms&quot;) govern the access and use of websites, cloud ERP applications, SaaS solutions, conversational workflows, and integration connectors provided by Nadhee Tech Solutions (&quot;Nadhee&quot;, &quot;we&quot;, &quot;us&quot;), including our Meta developer application <strong className="text-[#0B1F4B]">Nadhee AI Commerce</strong> (Meta App ID: <span className="font-mono text-xs bg-slate-100 px-2 py-0.5 rounded text-[#0B1F4B]">934938482334534</span>).
           </p>
           <div className="flex flex-wrap items-center gap-4 text-xs text-[#475569] pt-4 mt-6 border-t border-[#DCE6F5]">
+            <div><strong>Company:</strong> Nadhee Tech Solutions</div>
+            <div>•</div>
             <div><strong>Effective Date:</strong> October 18, 2026</div>
             <div>•</div>
-            <div><strong>Last Updated:</strong> October 18, 2026</div>
+            <div><strong>Last Updated:</strong> October 23, 2026</div>
             <div>•</div>
             <div><strong>Jurisdiction:</strong> India</div>
           </div>
@@ -61,7 +63,7 @@ export const TermsOfService: React.FC = () => {
               Acceptance of Terms
             </h2>
             <p>
-              By accessing our website, subscribing to our services, contracting custom software development, or connecting your business communications to Nadhee AI Commerce, you agree to be legally bound by these Terms. If you are accepting on behalf of an entity, company, or organization, you represent and warrant that you have full legal authority to bind that entity.
+              By accessing our website, subscribing to our SaaS applications, contracting custom software development, or connecting your business communications to the WhatsApp Business Platform through Nadhee integrations, you agree to be legally bound by these Terms. If you are accepting on behalf of an entity, company, or organization, you represent and warrant that you have full legal authority to bind that entity.
             </p>
           </section>
 
@@ -69,10 +71,10 @@ export const TermsOfService: React.FC = () => {
           <section className="space-y-3">
             <h2 className="text-xl sm:text-2xl font-bold text-[#0B1F4B] flex items-center gap-2">
               <span className="text-[#155EEF] text-base font-mono">02.</span>
-              Description of Services
+              Description of SaaS &amp; Technology Services
             </h2>
             <p>
-              Nadhee provides practical software engineering, cloud web applications, mobile tools, billing and enterprise resource planning (ERP) modules, AI-assisted commerce mechanisms, and WhatsApp business conversational automations. Services are customized or provisioned based on specific work orders, proposals, and feature selections.
+              Nadhee provides practical business software engineering, cloud ERP solutions, billing and point-of-sale modules, customer relationship management tools, and WhatsApp Business Platform conversational automations. Services are customized or provisioned based on specific work orders, proposals, and feature selections.
             </p>
           </section>
 
@@ -98,26 +100,41 @@ export const TermsOfService: React.FC = () => {
             </p>
           </section>
 
-          {/* Section 5 */}
+          {/* Section 5: WhatsApp & Meta Integrations */}
           <section className="space-y-3">
             <h2 className="text-xl sm:text-2xl font-bold text-[#0B1F4B] flex items-center gap-2">
               <span className="text-[#155EEF] text-base font-mono">05.</span>
-              WhatsApp &amp; Meta Integrations
+              WhatsApp &amp; Meta Platform Integrations
             </h2>
             <p>
               When utilizing WhatsApp Business connectivity via the Meta Developer App <strong>Nadhee AI Commerce</strong> (Meta App ID: 934938482334534):
             </p>
             <ul className="list-disc pl-6 space-y-1.5 text-sm">
+              <li>Each business connects and authorizes its own WhatsApp Business Account (WABA).</li>
               <li>You agree to comply with all Meta Developer Terms, WhatsApp Business Messaging Policies, and Commerce Policies.</li>
               <li>You warrant that you have obtained lawful consent and opt-ins from end consumers before sending notifications or promotional messages.</li>
-              <li>You acknowledge that Nadhee provides technical software connectivity and is not Meta Platforms, Inc., nor an affiliate of Meta.</li>
+              <li>You acknowledge that Nadhee provides technical software connectivity and is not Meta Platforms, Inc., nor an official Meta Business Partner.</li>
             </ul>
           </section>
 
-          {/* Section 6 */}
+          {/* Section 6: Customer Data Ownership & Tenant Isolation */}
           <section className="space-y-3">
             <h2 className="text-xl sm:text-2xl font-bold text-[#0B1F4B] flex items-center gap-2">
               <span className="text-[#155EEF] text-base font-mono">06.</span>
+              Customer Data Ownership &amp; Isolation
+            </h2>
+            <p>
+              As between Nadhee and the customer, you retain all ownership rights in your proprietary business data, customer records, and uploaded content. Nadhee processes your data strictly to operate the contracted services.
+            </p>
+            <p>
+              Each client&apos;s business data is isolated within distinct tenant boundaries and is never commingled with or accessed by another unrelated client. Nadhee does not sell customer conversation data.
+            </p>
+          </section>
+
+          {/* Section 7 */}
+          <section className="space-y-3">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#0B1F4B] flex items-center gap-2">
+              <span className="text-[#155EEF] text-base font-mono">07.</span>
               Customer Responsibilities
             </h2>
             <p>
@@ -130,10 +147,10 @@ export const TermsOfService: React.FC = () => {
             </ul>
           </section>
 
-          {/* Section 7 */}
+          {/* Section 8 */}
           <section className="space-y-3">
             <h2 className="text-xl sm:text-2xl font-bold text-[#0B1F4B] flex items-center gap-2">
-              <span className="text-[#155EEF] text-base font-mono">07.</span>
+              <span className="text-[#155EEF] text-base font-mono">08.</span>
               Acceptable Use
             </h2>
             <p>
@@ -146,17 +163,6 @@ export const TermsOfService: React.FC = () => {
               <li>Engage in deceptive, fraudulent, or harassing commercial communications.</li>
               <li>Attempt to reverse-engineer, decompile, or compromise the underlying infrastructure of the platform.</li>
             </ul>
-          </section>
-
-          {/* Section 8 */}
-          <section className="space-y-3">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#0B1F4B] flex items-center gap-2">
-              <span className="text-[#155EEF] text-base font-mono">08.</span>
-              Data and Content
-            </h2>
-            <p>
-              As between Nadhee and the customer, you retain all ownership rights in your proprietary business data and content. You grant Nadhee a non-exclusive, worldwide, royalty-free license to host, store, transfer, and process your content strictly to provide, maintain, and secure the agreed software services.
-            </p>
           </section>
 
           {/* Section 9 */}

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Trash2, Mail, ArrowLeft, AlertCircle, CheckCircle2, ShieldAlert } from 'lucide-react';
+import { Trash2, ArrowLeft, AlertCircle, CheckCircle2, ShieldAlert, Radio } from 'lucide-react';
 import { SITE_CONFIG } from '../data/siteData';
 
 export const DataDeletion: React.FC = () => {
@@ -10,7 +10,7 @@ export const DataDeletion: React.FC = () => {
     if (metaDesc) {
       metaDesc.setAttribute(
         'content',
-        'User Data Deletion Instructions for Nadhee Tech Solutions and Nadhee AI Commerce (Meta App ID: 934938482334534).'
+        'User Data Deletion Instructions for Nadhee Tech Solutions, Nadhee AI Commerce (Meta App ID: 934938482334534) and WhatsApp Business Platform integrations.'
       );
     }
   }, []);
@@ -36,11 +36,11 @@ export const DataDeletion: React.FC = () => {
             <Trash2 className="w-3.5 h-3.5" />
             <span>Compliance &amp; User Rights</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#0B1F4B] tracking-tight mb-3">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#0B1F4B] tracking-tight mb-3 font-sans">
             User Data Deletion Instructions
           </h1>
           <p className="text-sm text-[#475569] leading-relaxed">
-            In compliance with Meta Platform Policies and consumer privacy best practices, this page provides clear, step-by-step instructions on how users, business clients, and customers can request the deletion or anonymization of data associated with our software services and the Meta Developer App <strong className="text-[#0B1F4B]">Nadhee AI Commerce</strong> (Meta App ID: <span className="font-mono text-xs bg-slate-100 px-2 py-0.5 rounded text-[#0B1F4B]">934938482334534</span>).
+            In compliance with Meta Platform Policies and consumer privacy best practices, this page provides clear, step-by-step instructions on how users, business clients, and customers can request the deletion, unlinking, or anonymization of data associated with our software services, WhatsApp Business Platform integrations, and the Meta Developer App <strong className="text-[#0B1F4B]">Nadhee AI Commerce</strong> (Meta App ID: <span className="font-mono text-xs bg-slate-100 px-2 py-0.5 rounded text-[#0B1F4B]">934938482334534</span>).
           </p>
           <div className="flex flex-wrap items-center gap-4 text-xs text-[#475569] pt-4 mt-6 border-t border-[#DCE6F5]">
             <div><strong>Company:</strong> Nadhee Tech Solutions</div>
@@ -61,11 +61,11 @@ export const DataDeletion: React.FC = () => {
               Quick Summary: How to Request Data Deletion
             </h3>
             <p className="text-xs sm:text-sm text-[#0B1F4B]">
-              To request complete deletion or anonymization of your data from Nadhee Tech Solutions, send an email to{' '}
+              To request complete deletion, unlinking, or anonymization of your data from Nadhee Tech Solutions, send an email to{' '}
               <a href="mailto:info@nadheetechsolutions.com?subject=Data%20Deletion%20Request" className="font-bold underline text-[#155EEF]">
                 info@nadheetechsolutions.com
               </a>{' '}
-              with the subject line <strong className="font-mono text-xs bg-white px-2 py-0.5 rounded border border-blue-200">Data Deletion Request</strong>. No passwords or authentication credentials are required.
+              with the subject line <strong className="font-mono text-xs bg-white px-2 py-0.5 rounded border border-blue-200">Data Deletion Request</strong>. No passwords or sensitive authentication credentials are required.
             </p>
           </div>
 
@@ -109,7 +109,7 @@ export const DataDeletion: React.FC = () => {
                   3
                 </div>
                 <div className="space-y-2">
-                  <h4 className="font-bold text-[#0B1F4B] text-sm">Provide Account Identifiers</h4>
+                  <h4 className="font-bold text-[#0B1F4B] text-sm">Provide Account &amp; Integration Identifiers</h4>
                   <p className="text-xs sm:text-sm text-[#475569]">
                     Include sufficient information for our technical team to locate your records:
                   </p>
@@ -133,7 +133,7 @@ export const DataDeletion: React.FC = () => {
                 <div className="space-y-1">
                   <h4 className="font-bold text-[#0B1F4B] text-sm">Verification</h4>
                   <p className="text-xs sm:text-sm text-[#475569]">
-                    To prevent fraudulent or unauthorized deletion of business operations, our technical support desk may verify the identity of the requester through an authorized contact confirmation.
+                    To prevent fraudulent or unauthorized deletion of business operations, our technical support desk will verify the identity of the requester through an authorized contact confirmation.
                   </p>
                 </div>
               </div>
@@ -145,7 +145,7 @@ export const DataDeletion: React.FC = () => {
                 <div className="space-y-1">
                   <h4 className="font-bold text-[#0B1F4B] text-sm">Execution &amp; Confirmation</h4>
                   <p className="text-xs sm:text-sm text-[#475569]">
-                    Once verified, Nadhee will delete, unlink, or permanently anonymize the requested records within a reasonable timeframe (typically within 30 days) and send an email confirmation of completion.
+                    Once verified, Nadhee will delete, unlink, or permanently anonymize the requested records within a reasonable timeframe (typically within 30 days) and send an email confirmation of completion with status details.
                   </p>
                 </div>
               </div>
@@ -209,7 +209,7 @@ export const DataDeletion: React.FC = () => {
           {/* Contact Details */}
           <section className="space-y-4 pt-4 border-t border-[#DCE6F5]">
             <h2 className="text-xl sm:text-2xl font-bold text-[#0B1F4B] flex items-center gap-2">
-              <Mail className="w-5 h-5 text-[#155EEF]" />
+              <Radio className="w-5 h-5 text-[#155EEF]" />
               Direct Deletion Contact
             </h2>
             <p>

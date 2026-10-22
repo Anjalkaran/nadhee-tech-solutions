@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
+import { PlatformSection } from './components/PlatformSection';
 import { Services } from './components/Services';
 import { WhyNadhee } from './components/WhyNadhee';
 import { BusinessSolutions } from './components/BusinessSolutions';
@@ -17,6 +18,7 @@ import { NotFound } from './components/NotFound';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { TermsOfService } from './components/TermsOfService';
 import { DataDeletion } from './components/DataDeletion';
+import { WhatsAppBusinessPage } from './components/WhatsAppBusinessPage';
 import { MessageSquare } from 'lucide-react';
 import { SITE_CONFIG } from './data/siteData';
 
@@ -71,6 +73,8 @@ export function App() {
           <TermsOfService />
         ) : normalizedPath === '/data-deletion' ? (
           <DataDeletion />
+        ) : (normalizedPath === '/whatsapp-business-platform' || normalizedPath === '/whatsapp-commerce') ? (
+          <WhatsAppBusinessPage />
         ) : normalizedPath === '/' ? (
           <>
             {/* 1. Hero Section */}
@@ -79,31 +83,36 @@ export function App() {
               onExploreServices={handleExploreServices}
             />
 
-            {/* 2. Services Section */}
+            {/* 2. SaaS Platform Positioning */}
+            <div id="platform">
+              <PlatformSection />
+            </div>
+
+            {/* 3. Services Section */}
             <Services onSelectService={(service) => handleOpenConsultation(service)} />
 
-            {/* 3. Why Choose NADHEE */}
+            {/* 4. Why Choose NADHEE */}
             <WhyNadhee />
 
-            {/* 4. Solutions for Businesses */}
+            {/* 5. Solutions for Businesses */}
             <BusinessSolutions onOpenConsultation={() => handleOpenConsultation()} />
 
-            {/* 5. Our Work */}
+            {/* 6. Our Work */}
             <OurWork />
 
-            {/* 6. Pricing Section */}
+            {/* 7. Pricing Section */}
             <Pricing onRequestQuote={(plan) => handleOpenConsultation(plan)} />
 
-            {/* 7. How We Work */}
+            {/* 8. How We Work */}
             <HowWeWork />
 
-            {/* 8. Business Problem Callout */}
+            {/* 9. Business Problem Callout */}
             <ProblemCTA onOpenConsultation={() => handleOpenConsultation()} />
 
-            {/* 9. About NADHEE */}
+            {/* 10. About NADHEE */}
             <AboutSection />
 
-            {/* 10. Contact & Location Section */}
+            {/* 11. Contact & Location Section */}
             <ContactSection 
               prefilledService={selectedServiceForQuote} 
               onSuccessToast={showToast} 
