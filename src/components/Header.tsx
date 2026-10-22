@@ -15,7 +15,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 15);
 
-      const sections = ['home', 'platform', 'services', 'why-us', 'solutions', 'work', 'pricing', 'about', 'contact'];
+      const sections = ['home', 'services', 'solutions', 'work', 'pricing', 'about', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -37,7 +37,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
 
   const navLinks = [
     { name: 'Home', href: '/#home', id: 'home' },
-    { name: 'SaaS Platform', href: '/#platform', id: 'platform' },
     { name: 'Services', href: '/#services', id: 'services' },
     { name: 'WhatsApp Integration', href: '/whatsapp-business-platform', id: 'whatsapp' },
     { name: 'Solutions', href: '/#solutions', id: 'solutions' },
@@ -77,17 +76,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         isScrolled 
           ? 'bg-white/98 backdrop-blur-md border-b border-[#DCE6F5] shadow-xs py-2.5' 
-          : 'bg-white/95 backdrop-blur-sm border-b border-[#DCE6F5]/60 py-3.5'
+          : 'bg-white/95 backdrop-blur-sm border-b border-[#DCE6F5]/60 py-3'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-2 lg:gap-4">
           
           {/* Brand Logo with Official Uploaded Image */}
           <a 
             href="/" 
             onClick={(e) => handleNavClick(e, '/', 'home')}
-            className="flex items-center gap-2.5 group focus:outline-none rounded-lg p-0.5"
+            className="flex items-center gap-2 group focus:outline-none rounded-lg p-0.5 flex-shrink-0"
           >
             <div className="flex flex-col">
               <div className="flex items-center">
@@ -97,14 +96,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
                   className="h-8 sm:h-9 md:h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
                 />
               </div>
-              <span className="text-[8.5px] sm:text-[9.5px] font-extrabold tracking-[0.25em] text-[#155EEF] uppercase pl-1 sm:pl-1.5 -mt-0.5 font-sans">
+              <span className="text-[8px] sm:text-[9px] font-extrabold tracking-[0.22em] text-[#155EEF] uppercase pl-1 -mt-0.5 font-sans whitespace-nowrap">
                 TECH SOLUTIONS
               </span>
             </div>
           </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden xl:flex items-center space-x-1">
+          {/* Desktop Navigation - Single-line, perfectly aligned */}
+          <nav className="hidden lg:flex items-center space-x-0.5 xl:space-x-1 flex-shrink-0">
             {navLinks.map((link) => {
               const isRouteActive = 
                 link.href === '/whatsapp-business-platform' 
@@ -116,7 +115,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href, link.id)}
-                  className={`px-3 py-2 rounded-lg text-xs font-medium transition-all duration-150 ${
+                  className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-xs xl:text-sm font-medium whitespace-nowrap transition-all duration-150 inline-flex items-center leading-normal ${
                     isRouteActive 
                       ? 'text-[#155EEF] bg-[#F5F9FF] font-semibold border border-[#DCE6F5]' 
                       : 'text-[#0B1F4B] hover:text-[#155EEF] hover:bg-[#F5F9FF]/80'
@@ -129,19 +128,19 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
           </nav>
 
           {/* Desktop Right CTA */}
-          <div className="hidden lg:flex items-center space-x-3">
+          <div className="hidden lg:flex items-center space-x-2 xl:space-x-3 flex-shrink-0">
             <a
               href={`tel:${SITE_CONFIG.consultant.phone}`}
-              className="flex items-center gap-1.5 text-xs font-semibold text-[#0B1F4B] hover:text-[#155EEF] px-3 py-2 rounded-lg hover:bg-[#F5F9FF] transition-colors"
+              className="hidden xl:flex items-center gap-1.5 text-xs font-semibold text-[#0B1F4B] hover:text-[#155EEF] px-2.5 py-2 rounded-lg hover:bg-[#F5F9FF] transition-colors whitespace-nowrap"
               title="Call Technology Consultant"
             >
-              <Phone className="w-3.5 h-3.5 text-[#155EEF]" />
+              <Phone className="w-3.5 h-3.5 text-[#155EEF] flex-shrink-0" />
               <span>{SITE_CONFIG.consultant.phoneFormatted}</span>
             </a>
             
             <button
               onClick={onOpenConsultation}
-              className="px-4 py-2.5 rounded-xl bg-[#155EEF] hover:bg-[#1688FF] text-white font-semibold text-xs shadow-xs hover:shadow-md transition-all duration-150 flex items-center gap-1.5 active:scale-95"
+              className="px-3.5 xl:px-4 py-2.5 rounded-xl bg-[#155EEF] hover:bg-[#1688FF] text-white font-semibold text-xs shadow-xs hover:shadow-md transition-all duration-150 flex items-center gap-1.5 active:scale-95 whitespace-nowrap"
             >
               <span>Get a Free Consultation</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -191,7 +190,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href, link.id)}
-                className={`block px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
+                className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                   isRouteActive 
                     ? 'text-[#155EEF] bg-[#F5F9FF] font-semibold border border-[#DCE6F5]' 
                     : 'text-[#0B1F4B] hover:text-[#155EEF] hover:bg-[#F5F9FF]'
